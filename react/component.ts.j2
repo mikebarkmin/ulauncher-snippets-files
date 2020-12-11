@@ -1,0 +1,16 @@
+---
+vars:
+    name:
+        label: "Enter a name"
+icon: "icons/react.png"
+---
+
+import React from "react";
+
+type {{ vars("name")|pascalcase }}Props = {}
+
+const {{ vars("name")|pascalcase }} = ({...props}: {{ vars("name")|pascalcase }}Props) => (
+    <div></div>
+);
+
+export default {{ vars("name") | pascalcase }};
