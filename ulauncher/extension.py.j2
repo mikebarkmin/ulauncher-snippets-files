@@ -1,0 +1,52 @@
+---
+vars:
+    name:
+        label: Name of the extension
+icon: "icons/ulauncher.png"
+---
+from ulauncher.api.client.Extension import Extension
+from ulauncher.api.client.EventListener import EventListener
+from ulauncher.api.shared.item.ExtensionResultItem import ExtensionResultItem
+from ulauncher.api.shared.event import KeywordQueryEvent
+from ulauncher.api.shared.event import ItemEnterEvent
+from ulauncher.api.shared.event import SystemExitEvent
+from ulauncher.api.shared.action.RenderResultListAction import RenderResultListAction
+from ulauncher.api.shared.action.DoNothingAction import DoNothingAction
+from ulauncher.api.shared.action.SetUserQueryAction import SetUserQueryAction
+
+
+
+ICON_FILE = "images/icon.png"
+
+class {{ vars("name") }}Extension(Extension):
+    def __init__(self):
+        super({{ vars("name") }}Extension, self).__init__()
+
+        self.subscribe(KeywordQueryEvent, KeywordQueryEventListener())
+        self.subscribe(ItemEnterEvent, ItemEnterEventLister())
+        self.subscribe(SystemExitEvent, SystemExitEventListener())
+
+class ItemEnterEventLister(EventListener):
+    def on_event(self, event, extension):
+        pass
+
+class SystemExitEventListener(EventListener):
+    def on_event(self, event, extension):
+        pass
+
+class KeywordQueryEventListener(EventListener):
+    def on_event(self, event, extension):
+        query = event.get_argument() or str()
+
+        if len(query.strip()) == 0:
+            return RenderResultListAction([
+                ExtensionResultItem(icon=ICON_FILE, name="No input", on_enter=DoNothingAction())
+            ])
+
+        return RenderResultListAction([
+            ExtensionResultItem(icon=ICON_FILE, name="Reset Query", on_enter=SetUserQueryAction(""))
+        ])
+
+
+if __name__ == "__main__":
+    {{ vars("name") }}Extension().run()

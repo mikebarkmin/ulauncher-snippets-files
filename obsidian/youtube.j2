@@ -1,0 +1,16 @@
+---
+vars:
+    video_id:
+        label: Youtube Video Id
+icon: "icons/obsidian.png"
+---
+---
+tags: article
+created: "{{ date("now", "%Y-%m-%d") }}"
+modified: "{{ date("now", "%Y-%m-%d") }}"
+---
+
+url: https://www.youtube.com/watch?v={{ vars("video_id") }}
+links: [[]]
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/{{ vars("video_id") }}" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>

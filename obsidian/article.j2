@@ -1,0 +1,18 @@
+---
+vars:
+    title:
+        label: Title of the article
+    url:
+        label: URL to the article
+icon: "icons/obsidian.png"
+---
+---
+tags: article
+created: "{{ date("now", "%Y-%m-%d") }}"
+modified: "{{ date("now", "%Y-%m-%d") }}"
+---
+
+url: {{ vars("url") }}
+links: [[]]
+
+# {{ vars("title") }}
