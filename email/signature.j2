@@ -1,0 +1,27 @@
+---
+vars:
+    lang:
+        label: "Language either de or en"
+        default: "de"
+---
+--
+Mike Barkmin
+{% if vars("lang")|lower == "de" %}
+Universität Duisburg-Essen
+Fakultät für Wirtschaftswissenschaften
+Didaktik der Informatik
+
+Schützenbahn 70, 45127 Essen
+Raum: SA-224
+Tel.: +49 201 183-7246
+URL: http://www.ddi.wiwi.uni-due.de/team/mike-barkmin​
+{% else %}
+University of Duisburg-Essen
+Faculty of Business Administration and Economics
+Didactics of Informatics
+
+Schützenbahn 70, 45127 Essen
+Room: SA-224
+Phone: +49 201 183-7246
+URL: http://www.ddi.wiwi.uni-due.de/en/team/mike-barkmin​
+{% endif %}
