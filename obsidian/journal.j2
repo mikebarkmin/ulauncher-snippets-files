@@ -1,6 +1,10 @@
-[[{{ date("1 day ago", "%Y-%m-%d") }}]] <== <button class="date_button_today">Today</button> ==> [[{{ date("in 1 day", "%Y-%m-%d") }}]]
+[[Journal/{{ date("1 day ago", "%Y-%m-%d") }}|{{ date("1 day ago", "%Y-%m-%d") }}]] <== <button class="date_button_today">Today</button> ==> [[Journal/{{ date("in 1 day", "%Y-%m-%d") }}|{{ date("in 1 day", "%Y-%m-%d") }}]]
 
-> {{ quote() }}
+{%- set daily_quote = quote() %}
+
+![Inspritational Image]({{ daily_quote.get("background") }})
+
+> {{ daily_quote.get("quote", "") }} -- [[{{ daily_quote.get("author", "") }}]]
 
 ## Tasks
 
@@ -11,3 +15,4 @@
 ## Work Log
 
 ## Meetings
+ 
