@@ -8,7 +8,7 @@ tags: log
 
 {%- set daily_quote = quote() %}
 
-![Inspirational Image]({{ daily_quote.get("background") }})
+![Inspirational Image]({{ random_image() }})
 
 > {{ daily_quote.get("quote", "") }} -- [[{{ daily_quote.get("author", "") }}]]
 
