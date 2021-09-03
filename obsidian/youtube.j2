@@ -1,16 +1,15 @@
 ---
-vars:
-    video_id:
-        label: Youtube Video Id
+file_path_template: "~/Sources/notes/vault/Quellen/Videos/{{ youtube_info(clipboard())['title']|safe_filename }} - {{ youtube_info(clipboard())['author_name'] }}.md"
 icon: "icons/obsidian.png"
 ---
 ---
-tags: youtube, source
-created: "{{ date("now", "%Y-%m-%d") }}"
-modified: "{{ date("now", "%Y-%m-%d") }}"
+tags: quelle/youtube, quelle/status/aufgenommen
 ---
 
-url: https://www.youtube.com/watch?v={{ vars("video_id") }}
-links: [[]]
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/{{ vars("video_id") }}" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+{%- set yt = youtube_info(clipboard()) %}
+# [[Quellen/Videos/{{ yt['title']|safe_filename }} - {{ yt['author_name'] }}|{{ yt['title'] }}]]
+
+Channel: [[{{ yt['author_name'] }}]]
+
+![]({{ clipboard() }})

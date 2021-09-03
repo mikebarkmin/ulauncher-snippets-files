@@ -1,10 +1,15 @@
 ---
+icon: "icons/obsidian.png"
+file_path_template: "~/Sources/notes/vault/Quellen/Tweets/{{ twitter_info(clipboard())['title']|safe_filename }} - {{ twitter_info(clipboard())['author_name'] }}.md"
 ---
 ---
-tags: twitter, source
-created: "{{ date("now", "%Y-%m-%d") }}"
-modified: "{{ date("now", "%Y-%m-%d") }}"
+tags: quelle/twitter, quelle/status/aufgenommen
 ---
 
- <iframe border=0 frameborder=0 height=650 width=550
- src="https://twitframe.com/show?url={{ clipboard()|urlencode }}&theme=dark"></iframe> 
+
+{%- set t = twitter_info(clipboard()) %}
+# [[Quellen/Tweets/{{ t['title']|safe_filename }} - {{ t['author_name'] }}|{{ t['title'] }}]]
+
+Account: [[{{ t['author_name'] }}]]
+
+{{ t["html"] }}

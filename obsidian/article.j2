@@ -5,14 +5,13 @@ vars:
     url:
         label: URL to the article
 icon: "icons/obsidian.png"
+file_path_template: ~/Sources/notes/vault/Quellen/Artikel/{{ vars("title") }}.md
 ---
 ---
-tags: article, source
-created: "{{ date("now", "%Y-%m-%d") }}"
-modified: "{{ date("now", "%Y-%m-%d") }}"
+tags: quelle/article, quelle/status/aufgenommen
 ---
 
 url: {{ vars("url") }}
 links: [[]]
 
-# [[{{ vars("title") }}]]
+# [[Quellen/Artikel/{{ vars("title") }}|{{ vars("title") }}]]

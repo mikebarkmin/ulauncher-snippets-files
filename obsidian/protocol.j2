@@ -1,0 +1,18 @@
+---
+vars:
+    category:
+        label: Category e.g. DDI, IFS, BA-Name
+    title:
+        label: Title
+icon: "icons/obsidian.png"
+file_path_template: "~/Sources/notes/vault/{{ date("now", "%Y-%m-%d") }}-{{ vars("category") }}-{{ vars("title") }}.md"
+---
+---
+tags: protokoll
+---
+
+links: [[ {{ vars("category") }}]]
+
+# [[{{ date("now", "%Y-%m-%d") }}-{{ vars("category") }}-{{ vars("title") }}|{{ vars("title") }}]]
+
+Anwesend: [[Mike Barkmin]]
