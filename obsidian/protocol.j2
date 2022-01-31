@@ -1,17 +1,17 @@
 ---
 vars:
     category:
-        label: Category e.g. DDI, IFS, BA-Name
+        label: "Category e.g. DDI, IFS, BA-Name"
     title:
         label: Title
 icon: "icons/obsidian.png"
-file_path_template: "~/Sources/notes/vault/{{ date("now", "%Y-%m-%d") }}-{{ vars("category") }}-{{ vars("title") }}.md"
+file_path_template: "~/Sources/vault/{{ date('now', '%Y-%m-%d') }}-{{ vars('category') }}-{{ vars('title') }}.md"
 ---
 ---
 tags: protokoll
 ---
 
-links: [[ {{ vars("category") }}]]
+links: [[{{ vars("category") }}]]
 
 # [[{{ date("now", "%Y-%m-%d") }}-{{ vars("category") }}-{{ vars("title") }}|{{ vars("title") }}]]
 

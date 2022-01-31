@@ -7,6 +7,7 @@ import urllib.request
 import json
 import urllib
 import tweepy
+import os
 from bs4 import BeautifulSoup
 
 
@@ -74,7 +75,7 @@ globals = {
     "quote": quote,
     "random_image": random_image,
     "youtube_info": youtube_info,
-    "twitter_info": twitter_info,
+    "twitter_info": twitter_info
 }
 
 if __name__ == "__main__":

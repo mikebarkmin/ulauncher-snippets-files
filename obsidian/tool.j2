@@ -1,0 +1,17 @@
+---
+vars:
+    title:
+        label: Title of the tool
+    url:
+        label: URL of the tool
+icon: "icons/obsidian.png"
+file_path_template: ~/Sources/vault/Quellen/Tool/{{ vars("title") }}.md
+---
+---
+tags: quelle/tool, quelle/status/aufgenommen
+---
+
+url: {{ vars("url") }}
+links: [[]]
+
+# [[Quellen/Artikel/{{ vars("title") }}|{{ vars("title") }}]]
