@@ -1,6 +1,6 @@
 ---
 icon: "icons/obsidian.png"
-file_path_template: "~/Sources/vault/Quellen/Tweets/{{ twitter_info(clipboard())['title']|safe_filename }} - {{ twitter_info(clipboard())['author_name'] }}.md"
+file_path_template: "~/Sync/vault-schule/Quellen/Tweets/{{ twitter_info(clipboard())['title']|safe_filename }} - {{ twitter_info(clipboard())['author_name'] }}.md"
 ---
 ---
 tags: quelle/twitter, quelle/status/aufgenommen
@@ -10,6 +10,6 @@ tags: quelle/twitter, quelle/status/aufgenommen
 {%- set t = twitter_info(clipboard()) %}
 # [[Quellen/Tweets/{{ t['title']|safe_filename }} - {{ t['author_name'] }}|{{ t['title'] }}]]
 
-Account: [[{{ t['author_name'] }}]]
+Account:: [[Personen/Twitter/{{ t['author_name'] }}|{{ t['author_name'] }}]]
 
 {{ t["html"] }}

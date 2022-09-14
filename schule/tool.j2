@@ -1,0 +1,17 @@
+---
+vars:
+    title:
+        label: Titel des Tools
+    url:
+        label: URL des Tools
+icon: "icons/obsidian.png"
+file_path_template: ~/Sync/vault-schule/Quellen/Tool/{{ vars("title") }}.md
+---
+---
+tags: quelle/tool, quelle/status/aufgenommen
+---
+
+url: {{ vars("url") }}
+links: [[]]
+
+# [[Quellen/Tool/{{ vars("title") }}|{{ vars("title") }}]]
