@@ -1,0 +1,17 @@
+---
+vars:
+    title:
+        label: Titel des Buches
+    url:
+        label: URL zum Buch
+icon: "icons/obsidian.png"
+file_path_template: ~/Obsidian/Schule/Quellen/Bücher/{{ vars("title") }}.md
+---
+---
+tags: quelle/buch, quelle/status/aufgenommen
+---
+
+url: {{ vars("url") }}
+links: [[]]
+
+# [[Quellen/Artikel/{{ vars("title") }}|{{ vars("title") }}]]

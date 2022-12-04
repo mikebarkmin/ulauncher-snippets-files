@@ -1,17 +1,13 @@
 ---
-vars:
-    title:
-        label: Titel des Artikels
-    url:
-        label: URL des Artikels
 icon: "icons/obsidian.png"
-file_path_template: ~/Sync/vault-schule/Quellen/Artikel/{{ vars("title") }}.md
+file_path_template: ~/Obsidian/Schule/Quellen/Artikel/{{ website_info(clipboard())['title']|safe_filename }}.md
 ---
 ---
-tags: quelle/article, quelle/status/aufgenommen
+tags: quelle/artikel, quelle/status/aufgenommen
 ---
 
-url: {{ vars("url") }}
+{%- set w = website_info(clipboard()) %}
+url: {{ clipboard() }}
 links: [[]]
 
-# [[Quellen/Artikel/{{ vars("title") }}|{{ vars("title") }}]]
+# [[Quellen/Artikel/{{ w['title']|safe_filename }}|{{ w["title"] }}]]

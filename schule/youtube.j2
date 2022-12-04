@@ -1,5 +1,5 @@
 ---
-file_path_template: "~/Sync/vault-schule/Quellen/Videos/{{ youtube_info(clipboard())['title']|safe_filename }} - {{ youtube_info(clipboard())['author_name'] }}.md"
+file_path_template: "~/Obsidian/Schule/Quellen/Videos/{{ youtube_info(clipboard())['title']|safe_filename }} - {{ youtube_info(clipboard())['author_name'] }}.md"
 icon: "icons/obsidian.png"
 ---
 ---
@@ -12,4 +12,4 @@ tags: quelle/youtube, quelle/status/aufgenommen
 
 Kanal:: [[Personen/YouTube/{{ yt['author_name'] }}|{{ yt['author_name'] }}]]
 
-![]({{ clipboard() }})
+![YouTube Video]({{ clipboard() }})

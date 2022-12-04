@@ -1,7 +1,6 @@
 import json
 import re
 from typing import Dict
-import dotenv
 import requests
 import urllib.request
 import json
@@ -44,6 +43,13 @@ def youtube_info(url: str):
 
 cached_twitter_infos: Dict[str, str] = {}
 
+def website_info(url: str):
+    with urllib.request.urlopen(url) as response:
+        response_text = response.read()
+        title = BeautifulSoup(response_text, "html.parser").title.string.replace("\n", " ")
+        return { "title": title }
+
+
 
 def twitter_info(url: str):
     """
@@ -75,7 +81,8 @@ globals = {
     "quote": quote,
     "random_image": random_image,
     "youtube_info": youtube_info,
-    "twitter_info": twitter_info
+    "twitter_info": twitter_info,
+    "website_info": website_info
 }
 
 if __name__ == "__main__":
