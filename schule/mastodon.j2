@@ -1,0 +1,20 @@
+---
+icon: "icons/obsidian.png"
+file_path_template: "~/Obsidian/Schule/Quellen/Toots/{{ mastodon_info(clipboard())['id']|safe_filename }} - {{ mastodon_info(clipboard())['account']['username'] }}.md"
+---
+---
+tags: quelle/mastodon, quelle/status/aufgenommen
+---
+
+{%- set t = mastodon_info(clipboard()) %}
+Account:: [[Personen/Mastodon/{{ t['account']['username'] }}|{{ t['account']['username'] }}]]
+
+{{ t["content"] }}
+
+{%- for media in t["media_attachments"] %}
+  {% if media["url"].endswith(".mp4") -%}
+{{ media["url"] }}
+  {% else -%}
+![{{media["description"]}}]({{ media["url"] }})
+  {% endif %}
+{% endfor %}

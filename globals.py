@@ -3,6 +3,7 @@ import re
 from typing import Dict
 import requests
 import urllib.request
+import urllib.parse
 import json
 import urllib
 import tweepy
@@ -43,12 +44,14 @@ def youtube_info(url: str):
 
 cached_twitter_infos: Dict[str, str] = {}
 
+
 def website_info(url: str):
     with urllib.request.urlopen(url) as response:
         response_text = response.read()
-        title = BeautifulSoup(response_text, "html.parser").title.string.replace("\n", " ")
-        return { "title": title }
-
+        title = BeautifulSoup(response_text, "html.parser").title.string.replace(
+            "\n", " "
+        )
+        return {"title": title}
 
 
 def twitter_info(url: str):
@@ -77,12 +80,29 @@ def twitter_info(url: str):
         return cached_info
 
 
+def mastodon_info(url: str):
+    """
+    >>> mastodon_info("https://bildung.social/@mikebarkmin/109548402650115239")['account']['username']
+    'mikebarkmin'
+    """
+    url_parts = urllib.parse.urlparse(url)
+    domain = url_parts.netloc
+    scheme = url_parts.scheme
+    id = url_parts.path.split("/")[-1]
+    api_url = f"{scheme}://{domain}/api/v1/statuses/{id}"
+    with urllib.request.urlopen(api_url) as response:
+        response_text = response.read()
+        data = json.loads(response_text.decode())
+        return data
+
+
 globals = {
     "quote": quote,
     "random_image": random_image,
     "youtube_info": youtube_info,
     "twitter_info": twitter_info,
-    "website_info": website_info
+    "website_info": website_info,
+    "mastodon_info": mastodon_info
 }
 
 if __name__ == "__main__":
