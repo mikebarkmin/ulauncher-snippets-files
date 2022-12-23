@@ -1,13 +1,10 @@
 import json
-import re
 from typing import Dict
 import requests
 import urllib.request
 import urllib.parse
-import json
 import urllib
 import tweepy
-import os
 from bs4 import BeautifulSoup
 
 
@@ -93,16 +90,41 @@ def mastodon_info(url: str):
     with urllib.request.urlopen(api_url) as response:
         response_text = response.read()
         data = json.loads(response_text.decode())
+        data["created_at"] = data["created_at"][:10]
         return data
 
 
+def dl_file(url: str, dest: str):
+    file_data = requests.get(url).content
+    with open(dest, "wb") as file:
+        file.write(file_data)
+
+
+def dl_obsidian(url: str, vault: str):
+    """
+    Obsidian Attachment
+    """
+    pass
+
+
+def obsidian(vault: str):
+    if vault == "schule":
+        path = "~/Obsidian/Schule"
+
+        def dl(url: str):
+            return dl_obsidian(url, path + "/Anhänge")
+
+    return {"path": path, "dl": dl}
+
+
 globals = {
+    "obsidian": obsidian,
     "quote": quote,
     "random_image": random_image,
     "youtube_info": youtube_info,
     "twitter_info": twitter_info,
     "website_info": website_info,
-    "mastodon_info": mastodon_info
+    "mastodon_info": mastodon_info,
 }
 
 if __name__ == "__main__":
