@@ -108,8 +108,8 @@ def dl_obsidian(url: str, vault: str):
 
 
 def obsidian(vault: str):
-    if vault == "schule":
-        path = "~/Obsidian/Schule"
+    if vault == "vault":
+        path = "~/Obsidian/Vault"
 
         def dl(url: str):
             return dl_obsidian(url, path + "/Anhänge")
