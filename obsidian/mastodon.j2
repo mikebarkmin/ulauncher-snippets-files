@@ -6,7 +6,7 @@ file_path_template: "{%- set o = obsidian('vault') %}{%- set t = mastodon_info(c
 tags: quelle/mastodon, quelle/status/aufgenommen
 ---
 {%- set t = mastodon_info(clipboard()) %}
-{%- set o = obsidian('schule') %}
+{%- set o = obsidian('vault') %}
 
 Account:: [[Personen/Mastodon/{{ t['account']['username'] }}|{{ t['account']['username'] }}]]
 URL:: {{ t["url"] }}
